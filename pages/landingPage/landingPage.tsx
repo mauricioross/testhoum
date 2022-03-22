@@ -190,7 +190,7 @@ export default function LandingPage(props: any) {
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {PokemonSelected && PokemonSelected.name}{Message}
+                        {PokemonSelected && PokemonSelected['name']}{Message}
                     </Typography>
                     <Image src={Oak} width={300} height={500}></Image>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>

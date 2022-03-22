@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react';
 import { ButtonBase } from '@mui/material';
 import { Stats } from '../../stats/stats';
-import { types } from '../../../../utils/enums';
+import { types as type_pk } from '../../../../utils/enums';
 export interface HeroCardProps {
 
     children?: any,
@@ -46,33 +46,33 @@ export const HeroCard = (props: HeroCardProps) => {
                 <CardMedia
                     component="img"
                     height="140"
-                    image={ Pokemon.sprites.front_default}
-                    alt={Pokemon.name}
+                    image={Pokemon && Pokemon['sprites']['front_default'] || 'https://thumbs.dreamstime.com/z/icono-de-plantilla-error-lugar-muerto-p%C3%A1gina-no-encontrada-problemas-con-el-sistema-eps-164583533.jpg'}
+                    alt={Pokemon['name']}
                     className={`${styles.heroCard_container_card_media}`}
                 >
                    
                     </CardMedia>
                 <CardContent className={`${styles.heroCard_container_content}`}>
                     <Typography gutterBottom variant="h5" component="div" className={`${styles.heroCard_container_name}`}>
-                            {Pokemon.name}
+                            {Pokemon['name']}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div" className={`${styles.heroCard_container_id}`}>
                            <div className={`${styles.heroCard_container_id_circle}`}>
-                           {Pokemon.id}
+                           {Pokemon['id']}
                            </div>
                     </Typography>
-                    <Typography gutterBottom variant="p" component="div" className={`${styles.heroCard_container_base_exp}`}>
-                            Experiencia base: {Pokemon.base_experience}
+                    <Typography gutterBottom component="div" className={`${styles.heroCard_container_base_exp}`}>
+                            Experiencia base: {Pokemon['base_experience']}
                     </Typography>
-                    <Typography gutterBottom variant="p" component="div" className={`${styles.heroCard_container_types}`} style={{backgroundColor:`${types[Pokemon.types[0].type.name]}`,borderRadius:15,padding:'0.2rem 1rem' }}>
-                            Tipo {Pokemon.types[0].type.name}
+                    <Typography gutterBottom component="div" className={`${styles.heroCard_container_types}`} style={{backgroundColor:`${type_pk[Pokemon['types'][0]['type']['name']]}`,borderRadius:15,padding:'0.2rem 1rem' }}>
+                            Tipo {Pokemon['types'][0]['type']['name']}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                       <strong>{Pokemon.name}</strong> es de tipo {Pokemon.types.map((t)=>t.type.name).join(', ')}. Sus habilidades son {Pokemon.abilities.map((a)=>a.ability.name).join(' y ')}.
+                       <strong>{Pokemon['name']}</strong> es de tipo { (Pokemon['types'] as Array<any>).map((t:any)=>t['type']['name']).join(', ')}. Sus habilidades son {(Pokemon['abilities'] as Array<any>).map((a:any)=>a['ability']['name']).join(' y ')}.
                     </Typography>
                 </CardContent>
                 <CardActions className={`${styles.heroCard_container_actions}`}>
-                    <Stats data={Pokemon.stats}></Stats>
+                    <Stats data={Pokemon['stats']}></Stats>
                     <Button size="small" onClick={()=>props.action(Pokemon)} variant="outlined">Prof. Oak?</Button>
                 </CardActions>
             </Card> : null}
