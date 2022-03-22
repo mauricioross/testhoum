@@ -167,7 +167,7 @@ export default function LandingPage(props: any) {
 
                             {Items.map((item: any, idx: any) => {
 
-                                return (<Grid item xs={12} sm={12} md={4} key={idx}>
+                                return (<Grid item xs={12} sm={12} md={6} key={idx}>
                                     <HeroCard key={idx} pokemon={item} action={(data: any) => handleOpen(data)}></HeroCard>
                                 </Grid>
                                 )

@@ -65,8 +65,12 @@
     }
     &_types {
         position: absolute;
-        bottom: 51%;
+        bottom: 55%;
         right: 10px;
+        @media only screen and (max-width:390px){
+            bottom: 60%;
+        }
+       
     }
 
 
