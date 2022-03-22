@@ -1,0 +1,61 @@
+@import '../../styles/_variables.scss';
+
+.landingPage {
+    margin: 4.5rem auto;
+    width: 100%;
+    min-height: 100%;
+    background-color: white;
+    ;
+
+    &_title {
+        height: 20rem;
+        text-align: center;
+
+        //background-color: rgb(235, 235, 235);
+        h1 {
+            padding-top: 7rem;
+            font-family: $nunito-regular;
+        }
+    }
+
+    &_filters {
+        display: flex;
+        justify-content: space-around;
+        width: 70%;
+        margin: 0 auto;
+
+        &_input {
+            width: 80%;
+            margin-right: 5rem;
+
+        }
+
+        @media only screen and (max-width:789px) {
+            width: 90%;
+
+            &_input {
+                width: 100%;
+                margin-right: 1rem;
+                justify-content: center;
+
+            }
+        }
+    }
+
+    &_body {
+        //width: 70%;
+        padding-top: 3rem;
+        margin: 2rem auto;
+        background-color: $grey-light;
+
+        &__list {
+            width: 70%;
+            margin: 0 auto;
+
+            @media only screen and (max-width:789px) {
+                width: 80%;
+
+            }
+        }
+    }
+}

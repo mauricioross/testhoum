@@ -1,0 +1,17 @@
+@import '../../../styles/_variables.scss';
+
+.stats_container{
+    margin: 0 .2rem;
+    display: flex;
+    & span{
+        margin: 0 .5rem;
+    }
+    p{
+        font-size: 13px;
+        margin: 0.2rem auto;
+        background-color: white;
+        border-radius: 15px;
+        padding:1px 5px;
+        font-family: $nunito-regular;
+    }
+}
