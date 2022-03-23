@@ -10,12 +10,13 @@ import { useEffect, useState } from 'react';
 import { ButtonBase } from '@mui/material';
 import { Stats } from '../../stats/stats';
 import { types as type_pk } from '../../../../utils/enums';
+
 export interface HeroCardProps {
 
     children?: any,
     pokemon?: any,
     key: Number,
-    action:any
+    action?:any
 
 
 }
@@ -24,7 +25,7 @@ export const HeroCard = (props: HeroCardProps) => {
     const [Pokemon, setPokemon] = useState(null)
     useEffect(
         () => {
-       
+            if(!props.pokemon) return;
             ( async function fetchItems(){
                 try {
                     const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${props.pokemon.name}`);

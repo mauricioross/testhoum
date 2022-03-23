@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import styles from './header.module.scss';
-
 export interface HeaderProps {
     logo?: any,
     children?: any,
@@ -12,7 +11,7 @@ export const Header = (props: HeaderProps) => {
     
     return (
         <div className={`${styles.header_container}`}>
-            <Image src={props.logo.src} width={props.logo.width} height={props.logo.height}></Image> + Pokemón
+            {props.logo ? <Image src={props.logo || Logo} width={100} height={50} alt="logo"></Image>:null} + Pokemón
         </div>
     )
 }
